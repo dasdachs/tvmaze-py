@@ -5,12 +5,13 @@
 __all__ = ['Show']
 
 class Show(object):
-    def __init__(self, id_=0, url="", api_url="", name="",type="",
-                 language="", genres=[], status="",runtime=0,
-                 premiered="", schedule={}, rating=0.0, weight=0,
-                 network={}, webChannel={}, externals={}, image={},
-                 summary="", updated=0, _previous_episode="",
-                 _next_episode=""):
+    def __init__(
+        self, id_=0, url="", api_url="", name="",type="",
+        language="", genres=[], status="",runtime=0,
+        premiered="", schedule={}, rating=0.0, weight=0,
+        network={}, webChannel={}, externals={}, image={},
+        summary="", updated=0, previous_episode="", next_episode=""
+    ):
         """
         The response for show is
 

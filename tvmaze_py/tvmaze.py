@@ -10,13 +10,18 @@ __all__ = ['get', 'get_actor', 'get_episodes', 'get_show', 'get_shows']
 
 # Globals
 URL =  'http://api.tvmaze.com'
-SHOWS = '/search/shows?q='
 SHOW = '/singlesearch/shows?q='
+SHOWS = '/search/shows?q='
+EPISODES = '/episodes/'
+
 
 # Top level wrapper function
 def get(name, id=None, show=None, actor=None):
     pass
 
+
+def get_episodes(name):
+    pass
 
 def get_actor(name):
     pass
@@ -72,7 +77,9 @@ def _process_response(data, type="show"):
             image=data["image"],
             summary=data["summary"],
             updated=data["updated"],
-            _previous_episode=data["_links"]["previousepisode"]["href"],
-            _next_episode=data["_links"]["nextepisode"]["href"],
+            previous_episode=data["_links"]["previousepisode"]["href"],
+            next_episode=data["_links"]["nextepisode"]["href"],
         )
         return show
+    if type="episode":
+        http: // api.tvmaze.com / episodes / 1079686
