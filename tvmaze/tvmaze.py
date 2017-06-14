@@ -81,5 +81,6 @@ def _process_response(data, type="show"):
             next_episode=data["_links"]["nextepisode"]["href"],
         )
         return show
-    if type="episode":
-        http: // api.tvmaze.com / episodes / 1079686
+    if type == "episode":
+        # http: // api.tvmaze.com / episodes / 1079686
+        pass
