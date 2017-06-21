@@ -49,7 +49,8 @@ def get_shows(name):
 
 def _process_response(data, type="show"):
     """
-
+    The glue code between the API and the library. It
+    cleans the response, uses the correct data types etc.
 
     Args:
         data:
@@ -81,35 +82,20 @@ def _process_response(data, type="show"):
             next_episode=data["_links"]["nextepisode"]["href"],
         )
         return show
-    if type == "episode":
-        episode = Episode(
 
-            id
-            1079686
-            url
-            "http://www.tvmaze.com/episodes/1079686/girls-6x10-latching"
-            name
-            "Latching"
-            season
-            6
-            number
-            10
-            airdate
-            "2017-04-16"
-            airtime
-            "22:00"
-            airstamp
-            "2017-04-16T22:00:00-04:00"
-            runtime
-            30
-            image
-            medium
-            "http://static.tvmaze.com/uploads/images/medium_landscape/107/268862.jpg"
-            original
-            "http://static.tvmaze.com/uploads/images/original_untouched/107/268862.jpg"
-            summary
-            "<p>Marnie surprises Hannah at her home upstate. Admitting that she doesn't have much going on in her life since her band dissolved, Marnie explains she'd like to help Hannah raise the baby. Hannah accepts the offer.</p>"
-            _links
-            self
-            href
-            "http://api.tvmaze.com/episodes/1079686"
+    elif type == "episode":
+        episode = Episode(
+            id = data["id"],
+            url = data["url"],
+            api_url=data["_links"]["self"]["href"],
+            name = data["name"],
+            season = data["season"],
+            episode = data["number"],
+            airdate = datetime.strptime(data["airdate"], "%Y-%m-%d"),
+            # airtime "22:00"
+            # airstamp "2017-04-16T22:00:00-04:00"
+            runtime = data["runtime"],
+            images = [data.get("medium"), data.get("original")],
+            summary = data["summary"]
+        )
+        return episode
