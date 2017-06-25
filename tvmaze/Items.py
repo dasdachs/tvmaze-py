@@ -65,3 +65,23 @@ class Show(object):
     @property
     def previous_episode(self):
         pass
+
+
+
+class Episode(object):
+    def __init__(self):
+        """
+        id=data["id"],
+        url=data["url"],
+        api_url=data["_links"]["self"]["href"],
+        name=data["name"],
+        season=data["season"],
+        episode=data["number"],
+        airdate=datetime.strptime(data["airdate"], "%Y-%m-%d"),
+        # airtime "22:00"
+        # airstamp "2017-04-16T22:00:00-04:00"
+        runtime=data["runtime"],
+        images=[data.get("medium"), data.get("original")],
+        summary=data["summary"]
+        """
+        pass
