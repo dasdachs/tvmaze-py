@@ -84,4 +84,15 @@ class Episode(object):
         images=[data.get("medium"), data.get("original")],
         summary=data["summary"]
         """
-        pass
+        self.id_ = id_
+        self.url = url
+        self.api_url = api_url
+        self.name = name
+        self.season = season
+        self.episode = episode # Number
+        self.airdate = airdate # Datetime.datetime
+        self.airtime = airtime
+        self.airstamp = airstamp
+        self.runtime = runtime
+        self.images = images
+        self.summary = summary
