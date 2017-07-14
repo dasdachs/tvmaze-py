@@ -2,7 +2,7 @@ from datetime import datetime
 
 import requests
 
-from .Items import Show
+from .Items import Show, Episode
 
 
 # Exports
